@@ -4,6 +4,15 @@
     </head>
 
     <body>
+        
+        {% for post in posts %}
+        <div>
+            <p>published : {{ post.publised_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.title|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
+
         <div>
             <h1><a href="/">My Diary</a></h1>
         </div>
