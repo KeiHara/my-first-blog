@@ -1,31 +1,13 @@
-<html>
-    <head>
-        <title>MyDiary</title>
-    </head>
+{% extends 'blog/base.html' %}
 
-    <body>
-        
-        {% for post in posts %}
-        <div>
-            <p>published : {{ post.publised_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.title|linebreaksbr }}</p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-        {% endfor %}
-
-        <div>
-            <h1><a href="/">My Diary</a></h1>
-        </div>
-
-        <div>
-            <p>published: 22.06.2019</p>
-            <h2><a href="">初めての投稿</a></h2>
-        </div>
-
-        <div>
-            <p>published: 22.06.2019</p>
-            <h2><a href="">２回目の投稿</a></h2>
-            <p>こんにちは！よろしく！</p>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
